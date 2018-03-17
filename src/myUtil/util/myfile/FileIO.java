@@ -22,6 +22,25 @@ public class FileIO {
 		//appendWriteFileWithString(f,content);
 		//newWriteFileWithString(f,content);
 	}
+	
+	/**
+	 * Deleting dir and file recursively
+	 * @param dir
+	 * @return
+	 */
+	public static boolean deleteFileRecursively(File dir){
+		if (dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i=0; i<children.length; i++) {
+                boolean success = deleteFileRecursively(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        return dir.delete();
+	}
+	
 	/**
 	 * read file and return a String, if return null, file not found
 	 * @param file(File)
