@@ -11,7 +11,7 @@ public class MyArray8 {
 		
 		int[] k = concatArray(Arrays.asList(new int[] {2,3},new int[] {1,5},new int[] {8,4}));
 		IntStream.of(k).forEach(e -> System.out.print(e+","));
-		//opmijs
+		
 		
 
 	}
